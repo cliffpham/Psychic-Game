@@ -4,20 +4,21 @@ var losses = 0;
 var turns = 10;
 var userGuesses = [];
 // var userSelect = document.getElementById("userGuess");
+var compChoice = compChoices[Math.floor(Math.random() * compChoices.length)];
 
 
 //Game Starts on Key Press
 
 document.onkeyup = function(event) {
     var userGuess = event.key;
-    var compChoice = compChoices[Math.floor(Math.random() * compChoices.length)];
+   
 
 
 
     if (userGuess == compChoice) {
         //reset game if won
         wins++;
-        console.log("You won");
+        alert ("You won");
         winDisplay.textContent = wins;
         turns = 10;
         turnLeftDisplay.textContent = turns;
@@ -30,8 +31,8 @@ document.onkeyup = function(event) {
     
         //if turns run out add loss and reset game
     if  (turns === 0) {
-        losses++;
         turns = 10;
+        losses++;
         lossDisplay.textContent = losses;
         userGuesses = [];
         console.log("you lost");
